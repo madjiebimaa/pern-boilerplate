@@ -1,14 +1,17 @@
 import { MikroORM } from "@mikro-orm/core";
+import { config } from "dotenv";
 import path from "path";
 import { __prod__ } from "./constants";
 import { Task } from "./entities/Task";
 
+config();
+
 export default {
   entities: [Task],
   type: "postgresql",
-  user: "user",
-  password: "password",
-  dbName: "database_name",
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  dbName: process.env.DB_NAME,
   debug: !__prod__,
   migrations: {
     path: path.join(__dirname, "./migrations"),
