@@ -5,15 +5,15 @@ export class Task {
   @PrimaryKey()
   id!: number;
 
-  @Property()
+  @Property({ type: "date" })
   createdAt: Date = new Date();
 
-  @Property({ onUpdate: () => new Date() })
+  @Property({ type: "date", onUpdate: () => new Date() })
   updatedAt: Date = new Date();
 
   @Property()
   title!: string;
 
-  @Property()
+  @Property({ type: "text", nullable: true })
   description: string;
 }
