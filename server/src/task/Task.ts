@@ -6,14 +6,14 @@ export class Task {
   id!: number;
 
   @Property({ type: "date" })
-  createdAt: Date = new Date();
+  createdAt?: Date = new Date();
 
   @Property({ type: "date", onUpdate: () => new Date() })
-  updatedAt: Date = new Date();
+  updatedAt?: Date = new Date();
 
   @Property()
   title!: string;
 
   @Property({ type: "text", nullable: true })
-  description: string;
+  description?: string;
 }

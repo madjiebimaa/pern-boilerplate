@@ -1,0 +1,30 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@url = http://{{host}}/api/tasks
+
+### Create Task
+POST {{url}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "title 1",
+    "description": "description 1"
+}
+
+### Get Task By ID
+GET {{url}}/2
+Content-Type: application/json
+
+### Update Task By ID
+PATCH {{url}}/2
+Content-Type: application/json
+
+{
+    "title": "title 2.1",
+    "description": "description 2.1"
+}
+
+### Delete Task By ID
+DELETE {{url}}/2
+Content-Type: application/json
